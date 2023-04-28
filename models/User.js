@@ -1,5 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../../config/connection');
+const sequelize = require('../../config/connection.js');
 // const bcrypt = require("bcrypt");
 
 // Extending the sequelize model type to make columns in our sql db.

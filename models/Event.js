@@ -1,10 +1,10 @@
 const { Model, DataTypes } = require('sequelize');
-const sequelize = require("../config/connection");
+const sequelize = require("../config/connection.js");
 
 class Event extends Model {};
 
 Event.init({
-    coordinator: {
+    coordinator_id: {
         type: DataTypes.INTEGER,
         allowNull: false
     },
