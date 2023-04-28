@@ -4,4 +4,5 @@ const sequelize = require("../config/connection.js");
 // import our models to assign relationships in this file:
 const Comment = require('./Comment.js');
 const Event = require('./Event.js');
+const Notification = require('./Notification.js');
 const User = require('./User.js');
