@@ -25,6 +25,9 @@ Notification.belongsTo(Event, {onDelete: "CASCADE"});
 Event.hasMany(Post);
 Post.belongsTo(Event, {onDelete: "CASCADE"});
 
+// Post based associations:
+Post.hasMany(Comment);
+Comment.belongsTo(Post, {onDelete: "CASCADE"});
 
 module.exports = {
     Comment,
