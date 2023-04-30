@@ -18,6 +18,14 @@ Post.belongsTo(User, {onDelete: "CASCADE", foreignKey: "user_id"});
 User.belongsToMany(Event, {through: 'User_Events'});
 Event.belongsToMany(User, {through: 'User_Events'});
 
+// Event based associations:
+Event.hasMany(Notification);
+Notification.belongsTo(Event, {onDelete: "CASCADE"});
+
+Event.hasMany(Post);
+Post.belongsTo(Event, {onDelete: "CASCADE"});
+
+
 module.exports = {
     Comment,
     Event,
