@@ -33,3 +33,5 @@ router.post('/', (req, res) => {
         res.status(500).json({msg: "error creating new user", err});
     })
 })
+
+module.exports = router;

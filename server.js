@@ -4,6 +4,9 @@ require('dotenv').config();
 // Import express for app/backend initialization
 const express = require("express");
 
+// Import express-session for session initialization
+const session = require("express-session");
+
 // Import routes for express to access
 const routes = require("./controllers");
 
@@ -12,8 +15,6 @@ const sequelize = require("./config/connection");
 // Import connect-session-sequelize for session cookie storage
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
-// Import express-session for session initialization
-const session = require("express-session");
 
 // Initialize our backend with a port and all routes.
 const app = express();
@@ -38,7 +39,7 @@ app.use(session({
 }));
 
 // syncs our data base
-sequelize.sync({ force: false }).then(function () {
+sequelize.sync({ force: true }).then(function () {
     app.listen(PORT, function () {
         console.log("App listening on PORT " + PORT);
     });
