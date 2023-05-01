@@ -3,7 +3,7 @@ const express = require('express');
 const router = express.Router();
 const {User} = require('../models');
 
-// Get route to select all users in db:
+// Select all users:
 router.get('/', (req, res) => {
     User.findAll().then(users => {
         res.json(users);
@@ -14,8 +14,9 @@ router.get('/', (req, res) => {
     })
 })
 
-// Get route to create a new user in db:
+// Create a new user:
 router.post('/', (req, res) => {
+    console.log(req.body);
     User.create({
         email: req.body.email,
         first_name: req.body.first_name,
@@ -26,7 +27,7 @@ router.post('/', (req, res) => {
         // TODO consider what you'll actually want to setup a new session with.
         // req.session.user_id = newUser.id;
         // req.session.username = newUser.username;
-        res.json(newUser);
+        res.json({msg: "successfully created new user:", newUser});
     })
     .catch(err => {
         console.log(err);
